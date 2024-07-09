@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Home Screen</h1>
+    <ul>
+        <li><a href="{{ url_for('issuer') }}">Issuer</a></li>
+        <li><a href="{{ url_for('buyer') }}">Buyer</a></li>
+        <li><a href="{{ url_for('buyer_industry') }}">Buyer Industry</a></li>
+        <li><a href="{{ url_for('supplier') }}">Supplier</a></li>
+        <li><a href="{{ url_for('supplier_industry') }}">Supplier Industry</a></li>
+    </ul>
+</body>
+</html>

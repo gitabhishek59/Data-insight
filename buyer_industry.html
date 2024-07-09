@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buyer Industry Stats</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Buyer Industry Stats</h1>
+    <form method="POST">
+        <label for="buyer_industry_name">Enter Buyer Industry name:</label>
+        <input type="text" id="buyer_industry_name" name="buyer_industry_name" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if stats %}
+        <h2>Results</h2>
+        <p>{{ stats.buyer_industry_position }}</p>
+    {% endif %}
+
+    <br>
+    <a href="{{ url_for('index') }}">Return to Home Screen</a>
+</body>
+</html>

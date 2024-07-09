@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issuer Stats</title>
+</head>
+<body>
+    <h1>Issuer Stats</h1>
+    <form action="/issuer" method="post">
+        <label for="issuer_name">Enter Issuer name:</label>
+        <input type="text" id="issuer_name" name="issuer_name" required>
+        <label for="top_n">Number of top/bottom buyers and suppliers to display:</label>
+        <input type="number" id="top_n" name="top_n" value="" min="1" max="100">
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if stats %}
+        <h2>Issuer Details</h2>
+        <p>{{ stats.issuer_position }}</p>
+        <p>{{ stats.number_of_buyers }}</p>
+
+        <h3>Top Buyers:</h3>
+        <table border="1">
+            <tr>
+                <th>Buyer</th>
+                <th>Payment Volume (M)</th>
+            </tr>
+            {% for buyer, volume in stats.top_buyers.items() %}
+            <tr>
+                <td>{{ buyer }}</td>
+                <td>{{ volume }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>Bottom Buyers:</h3>
+        <table border="1">
+            <tr>
+                <th>Buyer</th>
+                <th>Payment Volume (M)</th>
+            </tr>
+            {% for buyer, volume in stats.bottom_buyers.items() %}
+            <tr>
+                <td>{{ buyer }}</td>
+                <td>{{ volume }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>Top Buyer Industry:</h3>
+        <table border="1">
+            <tr>
+                <th>Industry</th>
+                <th>Payment Volume (M)</th>
+            </tr>
+            {% for industry, volume in stats.top_buyer_industry.items() %}
+            <tr>
+                <td>{{ industry }}</td>
+                <td>{{ volume }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>Bottom Buyer Industry:</h3>
+        <table border="1">
+            <tr>
+                <th>Industry</th>
+                <th>Payment Volume (M)</th>
+            </tr>
+            {% for industry, volume in stats.bottom_buyer_industry.items() %}
+            <tr>
+                <td>{{ industry }}</td>
+                <td>{{ volume }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>Top Suppliers:</h3>
+        <table border="1">
+            <tr>
+                <th>Supplier</th>
+                <th>Payment Volume (M)</th>
+            </tr>
+            {% for supplier, volume in stats.top_suppliers.items() %}
+            <tr>
+                <td>{{ supplier }}</td>
+                <td>{{ volume }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>Bottom Suppliers:</h3>
+        <table border="1">
+            <tr>
+                <th>Supplier</th>
+                <th>Payment Volume (M)</th>
+            </tr>
+            {% for supplier, volume in stats.bottom_suppliers.items() %}
+            <tr>
+                <td>{{ supplier }}</td>
+                <td>{{ volume }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>Top Supplier Industry:</h3>
+        <table border="1">
+            <tr>
+                <th>Industry</th>
+                <th>Payment Volume (M)</th>
+            </tr>
+            {% for industry, volume in stats.top_supplier_industry.items() %}
+            <tr>
+                <td>{{ industry }}</td>
+                <td>{{ volume }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>Bottom Supplier Industry:</h3>
+        <table border="1">
+            <tr>
+                <th>Industry</th>
+                <th>Payment Volume (M)</th>
+            </tr>
+            {% for industry, volume in stats.bottom_supplier_industry.items() %}
+            <tr>
+                <td>{{ industry }}</td>
+                <td>{{ volume }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a href="/">Return to Home Screen</a>
+    {% endif %}
+</body>
+</html>

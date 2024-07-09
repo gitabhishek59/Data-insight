@@ -1,0 +1,19 @@
+<!-- issuer_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issuer Analysis</title>
+</head>
+<body>
+    <h1>Issuer Analysis</h1>
+    <form method="POST" action="/issuer">
+        <label for="issuer_name">Enter Issuer Name:</label>
+        <input type="text" id="issuer_name" name="issuer_name"><br><br>
+        <label for="top_n">Number of Top/Bottom Buyers:</label>
+        <input type="number" id="top_n" name="top_n" value="5"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
